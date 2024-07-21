@@ -7,7 +7,9 @@ export default class CommCenterPageObjects extends BasePage {
     btnDismiss()                       {   return $(`//ion-button[contains(text(),'Dismiss')]`)   }
     toastMsg()                         {   return $(`//ion-toast`)   }
     txtLoading()                       {   return $(`//ion-card-title[text()="Loading"]`)   }
+    searchField()                      {   return $(`//input[@type='search']`)   }
     spanRevContactName(username)       {   return $(`//span[@class='rev-contact-name' and contains(text(), '${username}')]`)   }
+    startVoiceCallBtn()                {   return $(`//ion-item[contains(text(), 'Start Voice Call')]`)   }
 
     txtContactName(username)           {   return $(`(//ion-label[contains(text(),'${username}')])[1]`)   }    
     divTimer()                         {   return $(`//span[contains(text(),'Timer:')]/parent::div`)   }    

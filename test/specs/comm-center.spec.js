@@ -12,11 +12,13 @@ describe('COMMUNICATION CENTER - comm-center.spec.js', () => {
     })
 
     it("TEST 3: should display contact, duration time, internal in conversation pane", async () => {
-        const selectedUser = "Test Interview User"
+        const selectedName = LoginTestData.credentials[0].username
 
         await CommCenterPageActions.clickDismissBtn()
-        await CommCenterPageActions.clickRevContactUsername(selectedUser)
-        await CommCenterPageActions.verifyConversationDetails(selectedUser)
+        await CommCenterPageActions.searchUserName(selectedName)
+        await CommCenterPageActions.clickRevContactUsername(selectedName)
+        await CommCenterPageActions.clickStartVoiceCall()
+        await CommCenterPageActions.verifyConversationDetails(selectedName)
        
     })
 })

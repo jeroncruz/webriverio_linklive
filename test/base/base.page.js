@@ -13,9 +13,9 @@ export default class BasePage {
         }, 10000)
     }
 
-    async verifyElementExist (element) {
+    async verifyElementDisplay (element) {
         browser.waitUntil(async () => {
-            return await expect(element).toExist()
+            return await expect(element).toBeDisplayed()
         }, 10000)
         
     }

@@ -11,7 +11,7 @@ class LoginPageActions extends LoginPageObjects {
 
     async verifySuccessfulLogin () {
         await super.imgLinkLive().waitForExist({timeout: 10000})
-        await super.verifyElementExist(super.imgLinkLive())
+        await super.verifyElementDisplay(super.imgLinkLive())
     }
 
     async navigateLoginUrl () {
@@ -22,9 +22,9 @@ class LoginPageActions extends LoginPageObjects {
         await super.txtInvalidCredentials().waitForExist({timeout: 10000})
         await super.txtPlsCheckUrl().waitForExist({timeout: 10000})
         await super.txtSubDomainRequired().waitForExist({timeout: 10000})
-        await super.verifyElementExist(super.txtInvalidCredentials())
-        await super.verifyElementExist(super.txtPlsCheckUrl())
-        await super.verifyElementExist(super.txtSubDomainRequired())
+        await super.verifyElementDisplay(super.txtInvalidCredentials())
+        await super.verifyElementDisplay(super.txtPlsCheckUrl())
+        await super.verifyElementDisplay(super.txtSubDomainRequired())
     }
 }
 

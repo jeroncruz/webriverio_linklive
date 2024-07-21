@@ -3,21 +3,34 @@ import CommCenterPageObjects from "../pageobjects/comm-center.pageobject"
 class CommCenterPageActions extends CommCenterPageObjects {
 
     async clickDismissBtn () {
-        await super.verifyElementExist(super.btnDismiss())
+        await super.verifyElementDisplay(super.btnDismiss())
         await super.btnDismiss().click()
+    }
+    
+    async searchUserName (username) {
+        await super.verifyElementDisplay(super.txtLoading())
+        await super.verifyElementDisplay(super.toastMsg())
+        await super.verifyElementDisplay(super.searchField())
+        await browser.pause(5000)
+        await super.searchField().setValue(username)
     }
 
     async clickRevContactUsername (username) {
-        await super.verifyElementExist(super.txtLoading())
-        await super.verifyElementExist(super.toastMsg())
-        await super.verifyElementExist(super.spanRevContactName(username))
+        await super.verifyElementDisplay(super.spanRevContactName(username))
         await super.spanRevContactName(username).click()
+        await browser.pause(5000)
+    }
+
+    async clickStartVoiceCall () {
+        await super.verifyElementDisplay(super.startVoiceCallBtn())
+        await super.startVoiceCallBtn().click()
+        await browser.pause(5000)
     }
 
     async verifyConversationDetails (expectedUsername) {
-        await super.verifyElementExist(super.txtContactName(expectedUsername))
-        await super.verifyElementExist(super.divTimer())
-        await super.verifyElementExist(super.txtInternal())
+        await super.verifyElementDisplay(super.txtContactName(expectedUsername))
+        await super.verifyElementDisplay(super.divTimer())
+        await super.verifyElementDisplay(super.txtInternal())
     }
 }
 
