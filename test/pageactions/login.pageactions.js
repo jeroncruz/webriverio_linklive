@@ -6,16 +6,18 @@ class LoginPageActions extends LoginPageObjects {
         await super.inputUsername().setValue(username)
         await super.inputPassword().setValue(password)
         await super.btnSignMeIn().click()
-        
+        await browser.pause(5000)
     }
 
     async verifySuccessfulLogin () {
+        await browser.pause(5000)
         await super.imgLinkLive().waitForExist({timeout: 10000})
         await super.verifyElementDisplay(super.imgLinkLive())
     }
 
     async navigateLoginUrl () {
         await super.openUrl('auth/login')
+        await browser.pause(5000)
     }
 
     async verifyInvalidLoginMessages () {

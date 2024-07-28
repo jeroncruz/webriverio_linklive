@@ -20,4 +20,34 @@ export default class BasePage {
         
     }
 
+    async verifyElementNotDisplay (element) {
+        browser.waitUntil(async () => {
+            return await expect(element).not.toBeDisplayed()
+        }, 10000)
+        
+    }
+
+    async changeWindowSize (width, height) {
+        await browser.setWindowSize(width, height)
+        await browser.pause(5000)
+        
+    }
+
+    async openNewWindow (path) {
+        await browser.newWindow(`https://revation-uat.linklive.dev/linklive/${path}`)
+        await browser.pause(5000)
+        
+    }
+
+    async switchWindow (index) {
+        const handles = await browser.getWindowHandles()
+        await browser.switchToWindow(handles[index])
+        
+    }
+
+    async closeAnotherWindow (index) {
+        const handles = await browser.getWindowHandles()
+        await browser.switchToWindow(handles[index])
+        await browser.closeWindow()
+    }
 }

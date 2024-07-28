@@ -2,7 +2,7 @@
 import LoginPageActions from "../pageactions/login.pageactions"
 import LoginTestData from "../fixtures/login.testdata"
 
-describe('My Login application', () => {
+describe('LOGIN - login.spec.js', () => {
 
     beforeEach(async () => {
         await LoginPageActions.navigateLoginUrl()
